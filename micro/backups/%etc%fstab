@@ -1,0 +1,15 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/nvme0n1p7 during installation
+UUID=5f13a221-92ac-4d97-a882-bafe50a48b9f /               ext4    errors=remount-ro 0       1
+# /boot/efi was on /dev/nvme0n1p2 during installation
+UUID=4859-D2F4  /boot/efi       vfat    umask=0077      0       1
+/swapfile                                 none            swap    sw              0       0
+# mount network share from debian-server to ubuntu
+//10.0.0.40/mnt	/media/debian-server	cifs	credentials=/home/peej/.smbcredentials, uid=1000,gid=1000,vers=3.0,nounix	0 	0
+# troubleshoot: https://unix.stackexchange.com/questions/178187/how-to-edit-etc-fstab-properly-for-network-drive
